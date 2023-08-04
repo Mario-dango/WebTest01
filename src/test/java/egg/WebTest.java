@@ -38,20 +38,22 @@ class WebTest {
         driver.get("https://www.google.com");
 
         WebElement elInputDeGugle = driver.findElement(By.id("APjFqb"));
-
         driver.manage().window().maximize();
-
         elInputDeGugle.sendKeys("QA automation\n");
-
         driver.navigate().back();
-
         driver.navigate().forward();
-
         elInputDeGugle = driver.findElement(By.id("APjFqb"));
         elInputDeGugle.clear();
         elInputDeGugle.sendKeys("Chat GPT\n");
+        
+        // Esperar 3 segundos antes de cerrar el navegador
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        // driver.close();
+        driver.close();
     }
 
 // Boton 1:
